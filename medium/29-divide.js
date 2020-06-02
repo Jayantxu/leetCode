@@ -17,7 +17,6 @@
 解释: 10/3 = truncate(3.33333..) = truncate(3) = 3
 
 */
-
 var divide = function(dividend, divisor) {
 
 };
