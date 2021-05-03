@@ -7,4 +7,25 @@
 
 | easy | mid | hard |
 | ---  | --- | ---  |
-| 3 | 5 | 1 |
+| 5 | 7 | 1 |
+
+
+📝
+### sliding window 滑动窗口
+
+### two point 双指针
+
+### fast&slow pointer 快慢指针
+
+### merge intervals 区间合并类型
+
+### cyclic sort 循环排序
+
+### list 链表
+
+...
+
+这些`tag`分类都可以在一些平台上找到，VSCode中也有响应的分类`tag`
+
+![VSCode-leetCode](https://github.com/Jayantxu/leeCode/static/NO1.png)
+
