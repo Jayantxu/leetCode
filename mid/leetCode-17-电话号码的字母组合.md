@@ -19,8 +19,11 @@
 
 ```
 var letterCombinations = function(digits) {
-    let digitsNum  digits.split('');
+    let digitsNum = digits.split('');
     let res = [];
+    if(!digitsNum.length ) {
+        return res;
+    }
     let digObj = {
         '2': ['a', 'b', 'c'],
         '3': ['d', 'e', 'f'],
@@ -31,7 +34,19 @@ var letterCombinations = function(digits) {
         '8': ['t','u','v'],
         '9': ['w', 'x', 'y', 'z']
     }
-    
+    const dfsFunc = (str, idx) => {
+        if(idx >= digitsNum.length ) {
+            res.push(str);
+            return;
+        }
+        let digStr = digitsNum[idx];
+        let digStrObj = digObj[digStr];
+        for(let i = 0; i < digStrObj.length; i++) {
+            dfsFunc(str + digStrObj[i], idx + 1);
+        }
+    }
+    dfsFunc('', 0);
+    return res;
 };
 ```
 
