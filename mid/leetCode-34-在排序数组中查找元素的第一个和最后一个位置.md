@@ -74,5 +74,51 @@ var searchRange = function(nums, target) {
 > 不知道为啥看到`O(log n)`，就默认和二分查找挂上勾，找`target`的区间，一定是左或者右，很像之前看过的一个算法，*二分查找找左区间*，*二分查找找右区间*。
 
 ```
+var searchRange = function(nums, target) {
+    let resArr = [];
 
+    /** 寻找左边界 */ 
+    let L = 0,
+        R = nums.length - 1;
+    let midx = Math.floor((R + L) / 2);
+    while(L < R ) {
+        if(nums[midx] >= target) {
+            R = midx;
+        } else {
+            L = midx + 1;
+        }
+        midx = Math.floor((R + L) / 2);
+    }
+    // 会有坑需要判断一下，例如searchRange([1,2,2,2,2,3,4,5], 98)
+    // res => 7 ❌
+    if(nums[L] !== target) {
+        resArr = [-1, -1];
+        return resArr;
+    }
+    resArr = [L, L];
+
+    /** 寻找有边界 */
+    L = 0;
+    R = nums.length - 1;
+    midx = Math.floor((R + L) / 2);
+    while(L <= R ) {
+        if(nums[midx] > target) {
+            R = midx - 1;
+        } else if (nums[midx] <= target) {
+            L = midx + 1;
+        }
+        midx = Math.floor((R + L) / 2);
+    }
+    if(nums[R] !== target) {
+        return resArr;
+    }
+    resArr[1] = R;
+    return resArr;
+};
 ```
+
+调试了我好一段时间🤦‍♂️🤦‍♂️🤦‍♂️
+
+寻找左右边界要好主意细节。
+
+🎆🎆🎆over
