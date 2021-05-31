@@ -34,8 +34,53 @@ var maxProfit = function(prices) {
 ```
 
 但是，暴力还是不太可取，毕竟会超时⏰
-
-> 单调栈，我们依次遍历，维护一个递增的栈，栈底就一定是最低值，有点像那两题求柱形面积的题。
+最大利润，就是这个价格数组中的最大最小价格的差。因此我们遍历一遍做下记录
 
 ```
+var maxProfit = function(prices) {
+    let minPrices = prices[0];
+    let maxIncome = 0;
+    for(let i = 0; i < prices.length; i++) {
+        let nowVal = prices[i];
+        if(nowVal < minPrices) {
+            minPrices = nowVal;
+        } 
+        if(prices[i] - minPrices > maxIncome) {
+            maxIncome = prices[i] - minPrices;
+        }
+    }
+    return maxIncome;
+};
+```
+
+- 题解
+
+👏看了题解还可以使用动态规划的方法进行解答，学习记录一下。
+
+dp[i]：前`i`天卖出的最大利润
+min：`prices`中前`i`项中的最小值
+prices[i] - min：当前位置卖出可得的最大利润
+dp[i - 1]：前`i - 1`项目卖出可得的最大利润
+
+即：今天的最大利润要吗是昨天卖出时获得的最大利润，要么是今天卖出
+```
+dp[i] = Math.max( dp[i - 1], prices[i] - min )
+```
+
+**code**
+
+```
+var maxProfit = function(prices) {
+    if(!prices.length) {
+        return;
+    }
+    let minPrices = prices[0];
+    let dp = new Array(prices.length).fill(0);
+    dp[0] = 0;
+    for(let i = 1; i < prices.length; i++) {
+        minPrices = Math.min(minPrices, prices[i]);
+        dp[i] = Math.max(dp[i - 1], prices[i] - minPrices);
+    }
+    return dp[prices.length - 1];
+};
 ```
