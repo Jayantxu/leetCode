@@ -36,6 +36,7 @@
 知道思路了，试着写一下。
 
 ```
+// [0,1,0,2,1,0,1,3,2,1,2,1]
 var trap = function(height) {
     let ans = 0;
     let asnArr = [];

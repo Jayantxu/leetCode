@@ -61,10 +61,10 @@ let canFinish = (numCourses, prerequisites) => {
         // 遍历课程，结一门减1，为0了即可以影响后续课程了。
         if (toEnQueue && toEnQueue.length) { 
             for (let i = 0; i < toEnQueue.length; i++) {
-            inDegree[toEnQueue[i]]--;            
-            if (inDegree[toEnQueue[i]] == 0) {   
-                queue.push(toEnQueue[i]);
-            }
+                inDegree[toEnQueue[i]]--;            
+                if (inDegree[toEnQueue[i]] == 0) {   
+                    queue.push(toEnQueue[i]);
+                }
             }
         }
     }

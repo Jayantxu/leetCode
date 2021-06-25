@@ -5,7 +5,7 @@ tags:
     - 算法
 ---
 
-*原题链接：👉：[无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)*
+*原题链接：👉：[寻找两个正序数组的中位数](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)*
 
 题目描述：
 1. 给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。
