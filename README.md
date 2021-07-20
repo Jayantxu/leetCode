@@ -27,5 +27,5 @@
 
 这些`tag`分类都可以在一些平台上找到，VSCode中也有响应的分类`tag`
 
-![VSCode-leetCode](https://github.com/Jayantxu/leeCode/static/NO1.png)
+![VSCode-leetCode](https://github.com/Jayantxu/leeCode/static/NO1.png).
 
